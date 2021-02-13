@@ -1,0 +1,59 @@
+import random
+def RockPaperScissors ():
+
+    plyr,exit = input('Use Rock, Paper or Scissors: '), input('Type "exit" to exit the game. Otherwise, please press Enter:  ')
+    
+
+    
+    dct = {
+        'Rock-Paper': 'You Lose',
+        'Rock-Scissors': 'You Won',
+        'Paper-Rock': 'You Won',
+        'Paper-Scissors': 'You Lose',
+        'Scrissors-Rock': 'You Lose',
+        'Scissors-Paper': 'You Won',
+        'Rock-Rock': 'Tie',
+        'Paper-Paper':'Tie',
+        'Scissors-Scissors':'Tie',
+        
+    }
+    
+    while exit.lower() != 'exit':
+       
+        game = plyr + '-' + random.choice(['Rock', 'Paper', 'Scissors'])
+        
+        if game in dct.keys():
+      
+            print(game.split('-'), dct.get(game))
+        
+        exit = input('Type "exit" to exit the game. Otherwise, please press Enter:  ')
+        
+        plyr = input('Use Rock, Paper or Scissors: ')
+        
+        
+        
+        
+        
+        ------------------------------------
+        #         *Comments*
+        
+        #Define a variable that will receive the input from the user.
+        #Define a variable that will receive if the user still willing to play
+        #Define a dictionary as a Case Switch operator with the different options and its score. 
+        #The left side of the ':', represents the options that we will compare with the inputs from both players.
+        #The right side represents the answer we will give as a final score.
+        #The sign '-' is used for a better legibility and in order to split later on the string to show which options were took by each player.
+        
+        #If the user wants to play, we enter the While loop.
+        #The variable game is used to store and concatenate the input from user, the '-' sign and the random choice within the three given string options made by the player2/computer
+        #This will store something like: 'Rock-Paper'.
+        #With this, now we can try to check if this string contained in 'game' exists in the left part of the dictionary. => if game in dct.keys()
+        #dct.keys() returns a list contained in the left side of the ':' within the 'dct' => ['Rock-Paper', 'Rock-Scissors',' Paper-Rock' ... ]
+          
+        #In case such string is in the contained in it (dct.keys())
+        #.              => Select the related answer to this keyword 'game', in order to set the final score
+        #               => Apply .split() to the string contained in 'game', in order to get the options played by user and computer/player2 
+        #               => Print out everythig
+        
+        #The final variable 'exit' is called again within the while loop to keep the user into the game unless he/she types in 'exit'.
+        #The last variable 'plyr', is also called again in order to ask the user for an input.
